@@ -8,11 +8,13 @@ RUN apt-get update && apt-get install -y \
     git \
     libpng-dev \
     libjpeg-dev \
-    libfreetype6-dev
+    libfreetype6-dev \
+    libzip-dev \
+    zip
 
-# Install PHP GD extension
+# Enable PHP extensions (GD + ZIP)
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install gd
+    && docker-php-ext-install gd zip
 
 # Copy project files
 COPY . .
@@ -20,8 +22,8 @@ COPY . .
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Install dependencies
+# Install PHP dependencies
 RUN composer install
 
-# Run app
+# Run server
 CMD php -S 0.0.0.0:$PORT -t public

@@ -1,0 +1,23 @@
+# Environment
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+cache/
+
+# Windows
+Thumbs.db
+
+# macOS
+.DS_Store
+
+# Development PHP bundle
+php83/

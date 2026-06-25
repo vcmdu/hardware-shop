@@ -1,2 +1,8 @@
 Get-Service | Where-Object {$_.Name -like "*postgres*"}
  c:\amman\php83\php.exe -S localhost:8000 -t c:\amman\public
+
+
+
+ git add .
+git commit -m "Your changes"
+git push

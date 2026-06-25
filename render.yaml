@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: hardware-shop
+    env: php
+    buildCommand: composer install
+    startCommand: php -S 0.0.0.0:$PORT -t public

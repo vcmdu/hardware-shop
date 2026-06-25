@@ -2,16 +2,6 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use App\Core\Database;
-
-echo "App Started 🚀 <br>";
-
-try {
-    $db = Database::getConnection();
-    echo "Database Connected Successfully ✅";
-} catch (Exception $e) {
-    echo "DB Connection Failed ❌";
-}
 use App\Core\Request;
 use App\Core\Response;
 use App\Core\Router;

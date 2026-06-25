@@ -6,15 +6,20 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y \
     unzip \
     git \
+    zip \
+    libzip-dev \
     libpng-dev \
     libjpeg-dev \
     libfreetype6-dev \
-    libzip-dev \
-    zip
+    libpq-dev
 
-# Enable PHP extensions (GD + ZIP)
+# Install PHP extensions
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install gd zip
+    && docker-php-ext-install \
+        gd \
+        zip \
+        pdo \
+        pdo_pgsql
 
 # Copy project files
 COPY . .
